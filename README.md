@@ -18,10 +18,10 @@
 - An online multiplayer chess game. Supports infinite players playing against random opponents on different machines on different networks. This project was created using python 3.7, pygame and the sockets module from python3. It runs on a basic client server system where a server script handles all incoming connections and game management. The clients simply handle the UI and game play.
  
 # Motivation:
-- Even though we are three driven individuals, we are faced with huge challenges. But one good thing is that we are committed and willingly to learn. 
-  The first challenge we were faced with is finding a platform to design our game remotely, we spend huge amounts of time testing different platforms like collab, and others. But finally, we got one that was cool and easily to use.
-  Another challenge we faced was working with sockets. We did tons of research on how to design servers and clients to easily connect to our server.
-  Lastly, even though we are at the stage where everythings looks a bit in shape, we are still challenged with making payment for an online server, to handle multiple clients/users to play our game. We are proud of the sleepless night was worth it
+- Even though we are three driven individuals, we were faced with huge challenges. But the good thing is that we are committed and willingly to learn. 
+  The first challenge we were faced with is finding a platform to design our game remotely, we spend huge time testing different platforms like collab, and others. But finally, we got one that was cool and easily to use.
+  Another challenge was working with sockets. We did tons of research on how to design a server and how to easily connect clients/users to our server.
+  Lastly, though we are at the stage where everything seem a bit in shape, we are still challenged with making payment for an online server, to handle 100 or more clients/users to play our game. We are proud of the sleepless night! It was worth it :) . 
 
 # Algorithm Used in Our Chess Game
 - Tree: We use heuristic methods to build, search and evaluate trees representing sequences of moves from the current 
