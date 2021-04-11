@@ -16,6 +16,7 @@
   
 # How to Setup: 
 > Once you download our game if you wish to run it from your machine, you will see a gitpod.yml file, this code once run will automatically install all necessary   files in your system. We do this, to safe you time. But if you wish to experiment it yourself, you should only install pygame.
+> Also you need to add your ip address on the server.py and client.py. Please do this as it will allow your code to run. You can double run the code to be able to play by you and your friend or client. To do this, you need to run your code and then try to run the code ith another editor. Or you can run in another computer.
   
 # Description: 
 > An online multiplayer chess game. Supports infinite players playing against random opponents on different machines on different networks. This project was created using python 3.7, pygame and the sockets module from python3. It runs on a basic client server system where a server script handles all incoming connections and game management. The clients simply handle the UI and game play.
