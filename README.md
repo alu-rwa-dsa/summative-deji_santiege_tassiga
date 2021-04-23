@@ -4,7 +4,7 @@
 3. Santigie Sankoh
 
 # What?: 
-> Online Multiplayer Chess
+> Online Multiplayer Chess - High fidelity 
 
 # Technology Used: 
 > pygame 
