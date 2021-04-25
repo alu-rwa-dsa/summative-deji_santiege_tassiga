@@ -1,4 +1,5 @@
 Contributing Documentation
+
 Hello, 
 Welcome to our program and we are excited to describe our contribution documentation and how this is profitable for everyone involved.
 We wanna ensure that we read and understand through our entire contribution guidelines to ensure your changes help grow and benefit the project and align with our objectives
