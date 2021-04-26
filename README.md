@@ -28,17 +28,19 @@
   Lastly, though we are at the stage where everything seem a bit in shape, we are still challenged with making payment for an online server, to handle 100 or more clients/users to play our game. We are proud of the sleepless night! It was worth it :) . 
   
 # Correctness of Algorithm
-For the board.py,We have a class called Board...Which has two parameters passed in it,which is the row and column
-> This is our first method of the class which is update_moves(self):
->     def update_moves(self):
+> For the board.py,We have a class called Board...Which has two parameters passed in it,which is the row and column
+  This is our first method of the class which is update_moves(self):
+    
+    def update_moves(self):
         for i in range(self.rows):
             for j in range(self.cols):
                 if self.board[i][j] != 0:
                     self.board[i][j].update_valid_moves(self.board)
-  #Time complexity of the code is big o(n2)....This is because it has a nested for loop which makes it iterate in two processes.(Quadratic runtime complexity)
-#Space complexity  of the code is big O(n)......This is because the rows aand columns are iterable which means if the row or column increases then the space that would be used would increase.
-OUR SECOND METHOD
-    def draw(self, win, color):
+> Time complexity of the code is big o(n2)....This is because it has a nested for loop which makes it iterate in two processes.(Quadratic runtime complexity)
+  Space complexity  of the code is big O(n)......This is because the rows aand columns are iterable which means if the row or column increases then the space that     would be used would increase.
+> OUR SECOND METHOD
+      
+      def draw(self, win, color):
         if self.last and color == self.turn:
             y, x = self.last[0]
             y1, x1 = self.last[1]
@@ -60,11 +62,13 @@ OUR SECOND METHOD
                     self.board[i][j].draw(win, color)
                     if self.board[i][j].isSelected:
                         s = (i, j)
-#Time complexity of our second method  is O(n2)
-#The Algoorithm Varies with the square of the problem size ,n.
-#Space complexity O(n).....The parameter in the function can be iterated through which increases the space based on the number of elements in the array
-#It is also called Constant space compexity
-OUR THIRD METHOD
+> Time complexity of our second method  is O(n2)
+  The Algoorithm Varies with the square of the problem size ,n.
+  Space complexity O(n).....The parameter in the function can be iterated through which increases the space based on the number of elements in the array
+  It is also called Constant space compexity
+
+> OUR THIRD METHOD
+    
     def get_danger_moves(self, color):
         danger_moves = []
         for i in range(self.rows):
@@ -74,11 +78,13 @@ OUR THIRD METHOD
                         for move in self.board[i][j].move_list:
                             danger_moves.append(move)
                             
-   # Time complexity of our  third method is O(n2)
-# The Algorithm Varies with the square of the problem size ,n.
- #Space complexity O(1)...color takes a constant space which is not iterable
-  #It is also called Linear space comlexity
-  OUR FOURTH METHOD
+> Time complexity of our  third method is O(n2)
+ The Algorithm Varies with the square of the problem size ,n.
+ Space complexity O(1)...color takes a constant space which is not iterable
+ It is also called Linear space comlexity
+  
+> OUR FOURTH METHOD
+
     def is_checked(self, color):
         self.update_moves( )
         danger_moves = self.get_danger_moves(color)
@@ -88,11 +94,14 @@ OUR THIRD METHOD
                 if self.board[i][j] != 0:
                     if self.board[i][j].king and self.board[i][j].color == color:
                         king_pos = (j, i)
-#  Time complexity of this METHOD is O(n2).....Quadratic runtime complexity
- # The Algoorithm Varies with the square of the problem size ,n.
- # Space complexity O(1)...color takes a constant space which is not iterable
- #  It is also called Linear space comlexity
- OUR FiFTH METHOD
+                        
+> Time complexity of this METHOD is O(n2).....Quadratic runtime complexity
+  The Algoorithm Varies with the square of the problem size ,n.
+  Space complexity O(1)...color takes a constant space which is not iterable
+  It is also called Linear space comlexity
+
+> OUR FiFTH METHOD
+
      def select(self, col, row, color):
         changed = False
         prev = (-1, -1)
@@ -101,9 +110,11 @@ OUR THIRD METHOD
                 if self.board[i][j] != 0:
                     if self.board[i][j].selected:
                         prev = (i, j)
- #Time complexity is 0(n2) due to its quadratic runtime Complexity
-   # The Algorithm Varies with the square of the problem size,n.
-OUR SIXTH METHOD
+> Time complexity is 0(n2) due to its quadratic runtime Complexity
+  The Algorithm Varies with the square of the problem size,n.
+
+>  OUR SIXTH METHOD
+
        def reset_selected(self):
         for i in range(self.rows):
             for j in range(self.cols):
@@ -114,17 +125,19 @@ OUR SIXTH METHOD
                     # Space complexity O(n)... The parameter in the function can be iterated through which increases the space based on the rows or columns
                     #  It is also called constant space complexity
                     
-  OUR SEVENTH METHOD
+ > OUR SEVENTH METHOD
+      
       def move(self, start, end, color):
         checked_Before = self.is_checked(color)
         changed = True
         nBoard = self.board[:]
         if nBoard[start[0]][start[1]].pawn:
             nBoard[start[0]][start[1]].first = False
-        #Time complexity is O(1)
-        # This means that the algorithm does a fixed number of operations no matter the number of inputs.                           # # This means that the runtime complexity of your algorithm increases linearly with the size of the input data.
-        # Space complexity O(1)...color takes a constant space which is not iterable
-        # if block piece takes Auxiliary space
+> Time complexity is O(1)
+  This means that the algorithm does a fixed number of operations no matter the number of inputs.                           # # This means that the runtime complexity of your algorithm increases linearly with the size of the input data.
+> Space complexity O(1)...color takes a constant space which is not iterable
+        
+        if block piece takes Auxiliary space
         nBoard[start[0]][start[1]].change_pos((end[0], end[1]))
         nBoard[end[0]][end[1]] = nBoard[start[0]][start[1]]
         nBoard[start[0]][start[1]] = 0
@@ -132,16 +145,18 @@ OUR SIXTH METHOD
         if self.is_checked(color) or (checked_Before and self.is_checked(color)):
             changed = False
             nBoard = self.board[:]
-            #Time complexity is O(1)
-            # This means that the algorithm does a fixed number of operations no matter the number of inputs.
-            # Space complexity O(1)...color takes a constant space which is not iterable
-            # if block piece takes Auxiliary space
-            if nBoard[end[0]][end[1]].pawn:
+> Time complexity is O(1)
+  This means that the algorithm does a fixed number of operations no matter the number of inputs.
+  Space complexity O(1)...color takes a constant space which is not iterable
+  if block piece takes Auxiliary space
+           
+           if nBoard[end[0]][end[1]].pawn:
                 nBoard[end[0]][end[1]].first = True
-          #Time complexity is O(1)
-            # This means that the algorithm does a fixed number of operations no matter the number of inputs.
-            # Space complexity O(1)...color takes a constant space which is not iterable
-            # if block piece takes Auxiliary space
+ > Time complexity is O(1)
+   This means that the algorithm does a fixed number of operations no matter the number of inputs.
+   Space complexity O(1)...color takes a constant space which is not iterable
+      
+            if block piece takes Auxiliary space
             nBoard[end[0]][end[1]].change_pos((start[0], start[1]))
             nBoard[start[0]][start[1]] = nBoard[end[0]][end[1]]
             nBoard[end[0]][end[1]] = 0
@@ -151,10 +166,11 @@ OUR SIXTH METHOD
         self.update_moves( )
         if changed:
             self.last = [start, end]
-        #Time Complexity is O(1)
-            # This means that the algorithm does a fixed number of operations no matter the number of inputs.
-            # Space complexity O(1)...color takes a constant space which is not iterable
-            # if block piece takes Auxiliary space
+ > Time Complexity is O(1)
+   This means that the algorithm does a fixed number of operations no matter the number of inputs.
+   Space complexity O(1)...color takes a constant space which is not iterable
+          
+          (if block piece takes Auxiliary space)
             if self.turn == "w":
                 self.storedTime1 += (time.time( ) - self.startTime)
                 # Space complexity O(1)...color takes a constant space which is not iterable
@@ -169,8 +185,9 @@ OUR SIXTH METHOD
    ---------------This is the analysis for the board.py of our codes_______________________
    
    ---------------Client.py_________
-   In our client.py,We have a class called network and we have different methods too
-   OUR FIRST METHOD
+> In our client.py,We have a class called network and we have different methods too
+> OUR FIRST METHOD
+
        def connect(self):
         self.client.connect(self.addr)
         return self.client.recv(4096*8)
@@ -181,11 +198,12 @@ OUR SIXTH METHOD
     OUR SECOND METHOD
         def disconnect(self):
         self.client.close()
-  # Time Complexity is O(1)
-  # This means that the algorithm does a fixed number of operations no matter the number of inputs.
-   # Space complexity O(1)...There is  no iteration taking place
-   # if block piece takes Auxiliary space
-   def send(self, data, pick=False):
+> Time Complexity is O(1)
+  This means that the algorithm does a fixed number of operations no matter the number of inputs.
+  Space complexity O(1)...There is  no iteration taking place
+  
+    (if block piece takes Auxiliary space)
+    def send(self, data, pick=False):
         """
         :param data: str
         :return: str
@@ -205,28 +223,30 @@ OUR SIXTH METHOD
                     print(e)
               except socket.error as e:
                 print(e)
-                # Time Complexity is O(1)
-                # This means that the algorithm does a fixed number of operations no matter the number of inputs.
-                # Space complexity O(1)...color takes a constant space which is not iterable
-                # if block piece takes Auxiliary space
-                 ---------------This is the analysis for the client.py of our codes_______________________
+  > Time Complexity is O(1)
+    This means that the algorithm does a fixed number of operations no matter the number of inputs.
+    Space complexity O(1)...color takes a constant space which is not iterable
+    if block piece takes Auxiliary space
+         ---------------This is the analysis for the client.py of our codes_______________________
            
            ---------------game.py_________ 
-           OUR FIRST METHOD for game.py
+  + OUR FIRST METHOD for game.py
+          
           def menu_screen(win, name):
-       global bo, chessbg
-    run = True
-    offline = False
-    while run:
-        win.blit(chessbg, (0,0))
-        small_font = pygame.font.SysFont("comicsans", 50)
-        if offline:
-            off = small_font.render("Server Offline, Try Again Later...", 1, (255, 0, 0))
-            win.blit(off, (width / 2 - off.get_width() / 2, 500))
-        pygame.display.update()
-        #Time complexity(Olog2n)Logarithmic runtime complexity
-        # This is associated with the binary search algorithm that searches by doing necessary halvings to get the item being searched for. The essence of this method is to compare the value being searched for, let’s name it X, with the middle element of the array and if X is not found there.
-        # We then decide which half of the array to look at next, which is repeated until X is found. The expected number of steps depends on the number of halvings needed to get from n elements to 1 element.
+            global bo, chessbg
+            run = True
+            offline = False
+            while run:
+                win.blit(chessbg, (0,0))
+                small_font = pygame.font.SysFont("comicsans", 50)
+                if offline:
+                    off = small_font.render("Server Offline, Try Again Later...", 1, (255, 0, 0))
+                    win.blit(off, (width / 2 - off.get_width() / 2, 500))
+                pygame.display.update()
+> Time complexity(Olog2n)Logarithmic runtime complexity
+  This is associated with the binary search algorithm that searches by doing necessary halvings to get the item being searched for. The essence of this method is to   compare the value being searched for, let’s name it X, with the middle element of the array and if X is not found there.
+  We then decide which half of the array to look at next, which is repeated until X is found. The expected number of steps depends on the number of halvings needed     to get from n elements to 1 element.
+        
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
@@ -245,179 +265,187 @@ OUR SIXTH METHOD
                 except:
                     print("Server Offline")
                     offline = True
-   Time complexity is O(1).........
+                    
+   > Time complexity is O(1).........
    This means that the algorithm does a fixed number of operations no matter the number of inputs.
    This means that the runtime complexity of your algorithm increases linearly with the size of the input data.
     Space complexity O(1)...color takes a constant space which is not iterable
      if block piece takes Auxiliary space
      
-     OUR SECOND METHOD
- def redraw_gameWindow(win, bo, p1, p2, color, ready):
-    win.blit(board, (0, 0))
-    bo.draw(win, color)
-    # # This means that the runtime complexity of your algorithm increases linearly with the size of the input data.
-    # Space complexity O(1)...color takes a constant space which is not iterable
-    # if block piece takes Auxiliary space
+ > OUR SECOND METHOD
+ 
+    def redraw_gameWindow(win, bo, p1, p2, color, ready):
+      win.blit(board, (0, 0))
+      bo.draw(win, color)
+  + This means that the runtime complexity of your algorithm increases linearly with the size of the input data.
+  + Space complexity O(1)...color takes a constant space which is not iterable
+    if block piece takes Auxiliary space
 
-    formatTime1 = str(int(p1//60)) + ":" + str(int(p1%60))
-    formatTime2 = str(int(p2 // 60)) + ":" + str(int(p2 % 60))
-    if int(p1%60) < 10:
-        formatTime1 = formatTime1[:-1] + "0" + formatTime1[-1]
-        #Time complexity is O(1)
-        # This means that the algorithm does a fixed number of operations no matter the number of inputs.
-        # Space complexity O(1)...color takes a constant space which is not iterable
-        # if block piece takes Auxiliary space
-    if int(p2%60) < 10:
-        formatTime2 = formatTime2[:-1] + "0" + formatTime2[-1]
-        # Time complexity is O(1)
-        # This means that the algorithm does a fixed number of operations no matter the number of inputs.
-        # Space complexity O(1)...color takes a constant space which is not iterable
-        # if block piece takes Auxiliary space
+        formatTime1 = str(int(p1//60)) + ":" + str(int(p1%60))
+        formatTime2 = str(int(p2 // 60)) + ":" + str(int(p2 % 60))
+        if int(p1%60) < 10:
+            formatTime1 = formatTime1[:-1] + "0" + formatTime1[-1]
+     > Time complexity is O(1)
+       This means that the algorithm does a fixed number of operations no matter the number of inputs.
+        Space complexity O(1)...color takes a constant space which is not iterable
+        if block piece takes Auxiliary space
+        
+        if int(p2%60) < 10:
+            formatTime2 = formatTime2[:-1] + "0" + formatTime2[-1]
+      > Time complexity is O(1)
+        This means that the algorithm does a fixed number of operations no matter the number of inputs.
+        Space complexity O(1)...color takes a constant space which is not iterable
+        if block piece takes Auxiliary space
 
-    font = pygame.font.SysFont("comicsans", 30)
-    try:
-        txt = font.render(bo.p1Name + "\'s Time: " + str(formatTime2), 1, (255, 255, 255))
-        txt2 = font.render(bo.p2Name + "\'s Time: " + str(formatTime1), 1, (255,255,255))
-    except Exception as e:
-        print(e)
-    win.blit(txt, (520,10))
-    win.blit(txt2, (520, 700))
-
-    txt = font.render("Press q to Quit", 1, (255, 255, 255))
-    win.blit(txt, (10, 20))
-
-    if color == "s":
-        txt3 = font.render("SPECTATOR MODE", 1, (255, 0, 0))
-        win.blit(txt3, (width/2-txt3.get_width()/2, 10))
-    # Time complexity is O(1)
-    # This means that the algorithm does a fixed number of operations no matter the number of inputs.
-
-    if not ready:
-        show = "Waiting for Player"
-        if color == "s":
-            show = "Waiting for Players"
-        font = pygame.font.SysFont("comicsans", 80)
-        txt = font.render(show, 1, (255, 0, 0))
-        win.blit(txt, (width/2 - txt.get_width()/2, 300))
-    # Time complexity is O(1)
-    # This means that the algorithm does a fixed number of operations no matter the number of inputs.
-    # Space complexity O(1)...color takes a constant space which is not iterable
-    # if block piece takes Auxiliary space
-
-    if not color == "s":
         font = pygame.font.SysFont("comicsans", 30)
-        # Time complexity is O(1)
-        # This means that the algorithm does a fixed number of operations no matter the number of inputs.
+        try:
+            txt = font.render(bo.p1Name + "\'s Time: " + str(formatTime2), 1, (255, 255, 255))
+            txt2 = font.render(bo.p2Name + "\'s Time: " + str(formatTime1), 1, (255,255,255))
+        except Exception as e:
+            print(e)
+        win.blit(txt, (520,10))
+        win.blit(txt2, (520, 700))
 
-        # Space complexity O(1)...color takes a constant space which is not iterable
-        # if block piece takes Auxiliary space
-        if color == "w":
-            txt3 = font.render("YOU ARE WHITE", 1, (255, 0, 0))
-            win.blit(txt3, (width / 2 - txt3.get_width() / 2, 10))
-            #  This means that the runtime complexity of your algorithm increases linearly with the size of the input data.
-            # Space complexity O(1)...color takes a constant space which is not iterable
-            # if block piece takes Auxiliary space
-        else:
-            txt3 = font.render("YOU ARE BLACK", 1, (255, 0, 0))
-            win.blit(txt3, (width / 2 - txt3.get_width() / 2, 10))
-        # Time complexity is O(1)
-        # This means that the algorithm does a fixed number of operations no matter the number of inputs.
-        # Space complexity O(1)...color takes a constant space which is not iterable
-        # if block piece takes Auxiliary space
+        txt = font.render("Press q to Quit", 1, (255, 255, 255))
+        win.blit(txt, (10, 20))
 
-        if bo.turn == color:
-            txt3 = font.render("YOUR TURN", 1, (255, 0, 0))
-            win.blit(txt3, (width / 2 - txt3.get_width() / 2, 700))
-        else:
-            txt3 = font.render("THEIR TURN", 1, (255, 0, 0))
-            win.blit(txt3, (width / 2 - txt3.get_width() / 2, 700))
-    # Time complexity is O(1)
-    # This means that the algorithm does a fixed number of operations no matter the number of inputs.
-    # Space complexity O(1)...color takes a constant space which is not iterable
-    # if block piece takes Auxiliary space
+        if color == "s":
+            txt3 = font.render("SPECTATOR MODE", 1, (255, 0, 0))
+            win.blit(txt3, (width/2-txt3.get_width()/2, 10))
+    + Time complexity is O(1)
+      This means that the algorithm does a fixed number of operations no matter the number of inputs.
 
-    pygame.display.update()
-    
-    OUR THIRD METHOD
-    
-   def quite_screen(win, text):
-    pygame.font.init()
-    font = pygame.font.SysFont("comicsans", 80)
-    txt = font.render(text,1, (255,0,0))
-    win.blit(txt, (width / 2 - txt.get_width() / 2, 300))
-    pygame.display.update()
+          if not ready:
+              show = "Waiting for Player"
+              if color == "s":
+                  show = "Waiting for Players"
+              font = pygame.font.SysFont("comicsans", 80)
+              txt = font.render(show, 1, (255, 0, 0))
+              win.blit(txt, (width/2 - txt.get_width()/2, 300))
+    + Time complexity is O(1)
+      This means that the algorithm does a fixed number of operations no matter the number of inputs.
+      Space complexity O(1)...color takes a constant space which is not iterable
+      if block piece takes Auxiliary space
 
+          if not color == "s":
+              font = pygame.font.SysFont("comicsans", 30)
+        + Time complexity is O(1)
+        + This means that the algorithm does a fixed number of operations no matter the number of inputs.
 
-   pygame.time.set_timer(pygame.USEREVENT+1, 3000)
-    # Time complexity is O(1)
-    # This means that the algorithm does a fixed number of operations no matter the number of inputs.
-    # Space complexity O(1)...color takes a constant space which is not iterable
-    # if block piece takes Auxiliary space
+        > Space complexity O(1)...color takes a constant space which is not iterable
+          if block piece takes Auxiliary space
+                      
+                      if color == "w":
+                          txt3 = font.render("YOU ARE WHITE", 1, (255, 0, 0))
+                          win.blit(txt3, (width / 2 - txt3.get_width() / 2, 10))
+                          
+         > This means that the runtime complexity of your algorithm increases linearly with the size of the input data.
+              Space complexity O(1)...color takes a constant space which is not iterable
+              if block piece takes Auxiliary space
+              
+          else:
+              txt3 = font.render("YOU ARE BLACK", 1, (255, 0, 0))
+              win.blit(txt3, (width / 2 - txt3.get_width() / 2, 10))
+        > Time complexity is O(1)
+          This means that the algorithm does a fixed number of operations no matter the number of inputs.
+          Space complexity O(1)...color takes a constant space which is not iterable
+          if block piece takes Auxiliary space
 
-   run = True
-    while run:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-                quit()
-                run = False
-            elif event.type == pygame.KEYDOWN:
-                run = False
-            elif event.type == pygame.USEREVENT+1:
-                run = False
-#Time complexity of this O(log2n)-Logarithmic runtime complexity
-#This is associated with the binary search algorithm that searches by doing necessary halvings to get the item being searched for. The essence of this method is to compare the value being searched for, let’s name it X, with the middle element of the array and if X is not found there.
-#We then decide which half of the array to look at next, which is repeated until X is found. The expected number of steps
+          if bo.turn == color:
+              txt3 = font.render("YOUR TURN", 1, (255, 0, 0))
+              win.blit(txt3, (width / 2 - txt3.get_width() / 2, 700))
+          else:
+              txt3 = font.render("THEIR TURN", 1, (255, 0, 0))
+              win.blit(txt3, (width / 2 - txt3.get_width() / 2, 700))
+    > Time complexity is O(1)
+     This means that the algorithm does a fixed number of operations no matter the number of inputs.
+    Space complexity O(1)...color takes a constant space which is not iterable
+    if block piece takes Auxiliary space
 
-OUR FOURTH METHOD
-def click(pos):
-    """
-    :return: pos (x, y) in range 0-7 0-7
-    """
-    x = pos[0]
-    y = pos[1]
-    if rect[0] < x < rect[0] + rect[2]:
-        if rect[1] < y < rect[1] + rect[3]:
-            divX = x - rect[0]
-            divY = y - rect[1]
-            i = int(divX / (rect[2]/8))
-            j = int(divY / (rect[3]/8))
-            return i, j
-            return -1, -1
+        pygame.display.update()
 
-# Time complexity is O(1)
-# This means that the algorithm does a fixed number of operations no matter the number of inputs.
-# Space complexity O(1)...color takes a constant space which is not iterable
-# if block piece takes Auxiliary space
+      > OUR THIRD METHOD
 
-OUR FIFTH METHOD
-def connect_client():
-    global n
-    n = Network()
-    return n.board
+         def quite_screen(win, text):
+          pygame.font.init()
+          font = pygame.font.SysFont("comicsans", 80)
+          txt = font.render(text,1, (255,0,0))
+          win.blit(txt, (width / 2 - txt.get_width() / 2, 300))
+          pygame.display.update()
 
 
-def main():
-    global turn, bo, name
+         pygame.time.set_timer(pygame.USEREVENT+1, 3000)
+    > Time complexity is O(1)
+      This means that the algorithm does a fixed number of operations no matter the number of inputs.
+      Space complexity O(1)...color takes a constant space which is not iterable
+      if block piece takes Auxiliary space
 
-   color = bo.start_user
-    count = 0
+     run = True
+      while run:
+          for event in pygame.event.get():
+              if event.type == pygame.QUIT:
+                  pygame.quit()
+                  quit()
+                  run = False
+              elif event.type == pygame.KEYDOWN:
+                  run = False
+              elif event.type == pygame.USEREVENT+1:
+                  run = False
+> Time complexity of this O(log2n)-Logarithmic runtime complexity
+ This is associated with the binary search algorithm that searches by doing necessary halvings to get the item being searched for. The essence of this method is to compare the value being searched for, let’s name it X, with the middle element of the array and if X is not found there.
+ We then decide which half of the array to look at next, which is repeated until X is found. The expected number of steps
 
-   bo = n.send("update_moves")
-    bo = n.send("name " + name)
-    clock = pygame.time.Clock()
-    run = True
+> OUR FOURTH METHOD
+      
+      def click(pos):
+          """
+          :return: pos (x, y) in range 0-7 0-7
+          """
+          x = pos[0]
+          y = pos[1]
+          if rect[0] < x < rect[0] + rect[2]:
+              if rect[1] < y < rect[1] + rect[3]:
+                  divX = x - rect[0]
+                  divY = y - rect[1]
+                  i = int(divX / (rect[2]/8))
+                  j = int(divY / (rect[3]/8))
+                  return i, j
+                  return -1, -1
 
-   while run:
-       if not color == "s":
-            p1Time = bo.time1
-            p2Time = bo.time2
-            if count == 60:
-                bo = n.send("get")
-                count = 0
-            else:
-                count += 1
-            clock.tick(30)
+> Time complexity is O(1)
+  This means that the algorithm does a fixed number of operations no matter the number of inputs.
+  Space complexity O(1)...color takes a constant space which is not iterable
+  if block piece takes Auxiliary space
+
+> OUR FIFTH METHOD
+
+    def connect_client():
+        global n
+        n = Network()
+        return n.board
+
+
+    def main():
+        global turn, bo, name
+
+       color = bo.start_user
+        count = 0
+
+       bo = n.send("update_moves")
+        bo = n.send("name " + name)
+        clock = pygame.time.Clock()
+        run = True
+
+       while run:
+           if not color == "s":
+                p1Time = bo.time1
+                p2Time = bo.time2
+                if count == 60:
+                    bo = n.send("get")
+                    count = 0
+                else:
+                    count += 1
+                clock.tick(30)
 
        try:
             redraw_gameWindow(win, bo, p1Time, p2Time, color, bo.ready)
@@ -426,9 +454,9 @@ def main():
             quite_screen(win, "Other player left")
             run = False
             break
- #Time complexity of this O(log2n)-Logarithmic runtime complexity
-#This is associated with the binary search algorithm that searches by doing necessary halvings to get the item being searched for. The essence of this method is to compare the value being searched for, let’s name it X, with the middle element of the array and if X is not found there.
- #We then decide which half of the array to look at next, which is repeated until X is found. The expected number of steps depends on the number of halvings needed to get from n elements to 1 element.
+> Time complexity of this O(log2n)-Logarithmic runtime complexity
+  This is associated with the binary search algorithm that searches by doing necessary halvings to get the item being searched for. The essence of this method is to compare the value being searched for, let’s name it X, with the middle element of the array and if X is not found there.
+We then decide which half of the array to look at next, which is repeated until X is found. The expected number of steps depends on the number of halvings needed to get from n elements to 1 element.
  
       if not color == "s":
            if p1Time <= 0:
@@ -602,29 +630,29 @@ def main():
         return moves
 
 
-class King(Piece):
-    img = 1
+    class King(Piece):
+        img = 1
 
-    def __init__(self, row, col, color):
-        super().__init__(row, col, color)
-        self.king = True
+        def __init__(self, row, col, color):
+            super().__init__(row, col, color)
+            self.king = True
 
-    def valid_moves(self, board):
-        i = self.row
-        j = self.col
+        def valid_moves(self, board):
+            i = self.row
+            j = self.col
 
-        moves = []
+            moves = []
 
-        if i > 0:
-            # TOP LEFT
-            if j > 0:
-                p = board[i - 1][j - 1]
-                if p == 0:
-                    moves.append((j - 1, i - 1,))
-                elif p.color != self.color:
-                    moves.append((j - 1, i - 1,))
-                    # Time Complexity is O(1)
-                    # This means that the algorithm does a fixed number of operations no matter the number of inputs.
+            if i > 0:
+                # TOP LEFT
+                if j > 0:
+                    p = board[i - 1][j - 1]
+                    if p == 0:
+                        moves.append((j - 1, i - 1,))
+                    elif p.color != self.color:
+                        moves.append((j - 1, i - 1,))
+                        # Time Complexity is O(1)
+                        # This means that the algorithm does a fixed number of operations no matter the number of inputs.
 
             # TOP MIDDLE
             p = board[i - 1][j]
@@ -710,26 +738,26 @@ class King(Piece):
     # This means that the algorithm does a fixed number of operations no matter the number of inputs.
 
 
-class Knight(Piece):
-    img = 2
+    class Knight(Piece):
+        img = 2
 
-    def valid_moves(self, board):
-        i = self.row
-        j = self.col
+        def valid_moves(self, board):
+            i = self.row
+            j = self.col
 
-        moves = []
+            moves = []
 
-        # DOWN LEFT
-        if i < 6 and j > 0:
-            p = board[i + 2][j - 1]
-            if p == 0:
-                moves.append((j - 1, i + 2))
-            elif p.color != self.color:
-                moves.append((j - 1, i + 2))
-                # Time Complexity is O(1)
-                #This means that the algorithm does a fixed number of operations no matter the number of inputs.
-                # Space complexity O(1)...color takes a constant space which is not iterable
-                # if block piece takes Auxiliary space
+            # DOWN LEFT
+            if i < 6 and j > 0:
+                p = board[i + 2][j - 1]
+                if p == 0:
+                    moves.append((j - 1, i + 2))
+                elif p.color != self.color:
+                    moves.append((j - 1, i + 2))
+                    # Time Complexity is O(1)
+                    #This means that the algorithm does a fixed number of operations no matter the number of inputs.
+                    # Space complexity O(1)...color takes a constant space which is not iterable
+                    # if block piece takes Auxiliary space
 
         # UP LEFT
         if i > 1 and j > 0:
@@ -812,30 +840,30 @@ class Knight(Piece):
     # if block piece takes Auxiliary space
 
 
-class Pawn(Piece):
-    img = 3
+    class Pawn(Piece):
+        img = 3
 
-    def __init__(self, row, col, color):
-        super().__init__(row, col, color)
-        self.first = True
-        self.queen = False
-        self.pawn = True
+        def __init__(self, row, col, color):
+            super().__init__(row, col, color)
+            self.first = True
+            self.queen = False
+            self.pawn = True
 
-    def valid_moves(self, board):
-        i = self.row
-        j = self.col
+        def valid_moves(self, board):
+            i = self.row
+            j = self.col
 
-        moves = []
-        try:
-            if self.color == "b":
-                if i < 7:
-                    p = board[i + 1][j]
-                    if p == 0:
-                        moves.append((j, i + 1))
-                        # Time Complexity is O(1)
-                        # This means that the algorithm does a fixed number of operations no matter the number of inputs.
-                        # Space complexity O(1)...color takes a constant space which is not iterable
-                        # if block piece takes Auxiliary space
+            moves = []
+            try:
+                if self.color == "b":
+                    if i < 7:
+                        p = board[i + 1][j]
+                        if p == 0:
+                            moves.append((j, i + 1))
+                            # Time Complexity is O(1)
+                            # This means that the algorithm does a fixed number of operations no matter the number of inputs.
+                            # Space complexity O(1)...color takes a constant space which is not iterable
+                            # if block piece takes Auxiliary space
 
 
                     # DIAGONAL
@@ -1055,25 +1083,25 @@ class Queen(Piece):
     # Space complexity O(n)...the parameter in this function can be iterated through
 
 
-class Rook(Piece):
-    img = 5
+    class Rook(Piece):
+        img = 5
 
-    def valid_moves(self, board):
-        i = self.row
-        j = self.col
+        def valid_moves(self, board):
+            i = self.row
+            j = self.col
 
-        moves = []
+            moves = []
 
-        # UP
-        for x in range(i - 1, -1, -1):
-            p = board[x][j]
-            if p == 0:
-                moves.append((j, x))
-            elif p.color != self.color:
-                moves.append((j, x))
-                break
-            else:
-                break
+            # UP
+            for x in range(i - 1, -1, -1):
+                p = board[x][j]
+                if p == 0:
+                    moves.append((j, x))
+                elif p.color != self.color:
+                    moves.append((j, x))
+                    break
+                else:
+                    break
         # Time Complexity is O(n)
         # This means that the runtime complexity of your algorithm increases linearly with the size of the input data.
         # Space complexity O(n)...the parameter in this function can be iterated through
@@ -1128,28 +1156,28 @@ class Rook(Piece):
         
         These are our methods
         server = "192.168.1.65"
-port = 5555
+    port = 5555
 
-server_ip = socket.gethostbyname(server)
+    server_ip = socket.gethostbyname(server)
 
-try:
-    s.bind((server, port))
+    try:
+        s.bind((server, port))
 
-except socket.error as e:
-    print(str(e))
-# # Time Complexity is O(1)
-s.listen()
-print("[START] Waiting for a connection")
+    except socket.error as e:
+        print(str(e))
+    # # Time Complexity is O(1)
+    s.listen()
+    print("[START] Waiting for a connection")
 
-connections = 0
+    connections = 0
 
-games = {0:Board(8, 8)}
+    games = {0:Board(8, 8)}
 
-spectartor_ids = [] 
-specs = 0
+    spectartor_ids = [] 
+    specs = 0
 
-def read_specs():
-    global spectartor_ids
+    def read_specs():
+        global spectartor_ids
 
     spectartor_ids = []
     try:
@@ -1161,8 +1189,8 @@ def read_specs():
         open("specs.txt", "w")
 
 
-def threaded_client(conn, game, spec=False):
-    global pos, games, currentId, connections, specs
+    def threaded_client(conn, game, spec=False):
+        global pos, games, currentId, connections, specs
 
     if not spec:
         name = None
@@ -1316,15 +1344,15 @@ def threaded_client(conn, game, spec=False):
         conn.close()
 
 
-while True:
-    read_specs()
-    if connections < 6:
-        conn, addr = s.accept()
-        spec = False
-        g = -1
+      while True:
+          read_specs()
+          if connections < 6:
+              conn, addr = s.accept()
+              spec = False
+              g = -1
         print("[CONNECT] New connection")
-        # Time Complexity is O(log2n)
-        #This is associated with the binary search algorithm that searches by doing necessary halvings to get the item being searched for. The essence of this method is to compare the value being searched for, let’s name it X, with the middle element of the array and if X is not found there.
+   > Time Complexity is O(log2n)
+     This is associated with the binary search algorithm that searches by doing necessary halvings to get the item being searched for. The essence of this method is to compare the value being searched for, let’s name it X, with the middle element of the array and if X is not found there.
      #We then decide which half of the array to look at next, which is repeated until X is found. The expected number of steps depends on the number of halvings needed to get from n elements to 1 element.
 
 
