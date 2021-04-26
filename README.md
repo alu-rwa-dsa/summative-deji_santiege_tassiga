@@ -1480,7 +1480,6 @@ if __name__ == '__main__':
 # Solution
 + Essay
 > Frankly, it was a painful and, at the same time, a fantastic experience. We decided to design a Multi-player Chess Game because many students at ALU requested it. As we observed, Covid has caused a considerable gap in socialization. What used to be fun is no longer fun. Our unique solution was to create a fun game and one that will once unite students of the same interest. And since the chess game is one that many students enjoy, we are thrilled to spend an extended time designing a seamlessly simple chess game that connects students, especially nerds & geeks, studying CS.
-
 My Teammates and I are excited about completing this project because we have come a long way to solve this problem. We believe that many students, even those outside ALU, can reunite with other friends of the same interest and even make new ones.
 
 # Addition
