@@ -1478,14 +1478,12 @@ if __name__ == '__main__':
  
   
 # Solution
-> Essay (150 words)
+> Essay
+Frankly, it was a painful and, at the same time, a fantastic experience. We decided to design a Multi-player Chess Game because many students at ALU requested it. As we observed, Covid has caused a considerable gap in socialization. What used to be fun is no longer fun. Our unique solution was to create a fun game and one that will once unite students of the same interest. And since the chess game is one that many students enjoy, we are thrilled to spend an extended time designing a seamlessly simple chess game that connects students, especially nerds & geeks, studying CS.
 
-Probably, it was a great opportunity, an experience for me and my Team to work on this Idea which to Build Chess Game . The Reason Behind this app is that We wanna help ALU students to relax and Chill with this game during the Holidays. The Problem which gave us the motivation to build this game is that we realize that a lot of people at ALU they really like playing Chess Game to relax and Also as the school will end very soon, as Computer science We wanna create this App so that we can help them to relax and Chill with our new App without pay fees for it.
+My Teammates and I are excited about completing this project because we have come a long way to solve this problem. We believe that many students, even those outside ALU, can reunite with other friends of the same interest and even make new ones.
 
-Here I and my Team mates, we  have come a long way up with this solution  to build this app and we believe that with this new App, they Can enjoy and Chill during this Holidays. We wanna ensure that everyone will Enjoy this amazing Holidays.
 # Addition
-
-
 > Video : https://drive.google.com/file/d/1id3uQo1ia3fFFYhf4clRYIsfcfUXsXKn/view?usp=sharing
 
 # Reference:
