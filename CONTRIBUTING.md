@@ -15,3 +15,6 @@ We are excited to highlight our contributions as a team, and the different roles
 > This team member primary role was the coding. He coded the foundamentals of the game including server side scripting. And also monitors the progress; and making sure the implementation goes smoothly without any constraints. 
 
 > Regardless, this wouldn't have been possible without the collaborative efforts and contributions of everyone. Everyone contributed immensely in the ideation and implementation of the project.
+
++ Team presentation
+> video link: https://drive.google.com/file/d/1id3uQo1ia3fFFYhf4clRYIsfcfUXsXKn/view?usp=sharing
