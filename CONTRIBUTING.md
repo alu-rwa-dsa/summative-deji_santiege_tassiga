@@ -8,7 +8,7 @@ We are excited to highlight our contributions as a team, and the different roles
 # Roles & Responsibilities
 
 + Serge Tassiga
-> This team member contributed immensely in ensuring everyone perform their duties and always remain the team of dealines. He also assisted in designing the user inter-phase of the game.
+> This team member contributed immensely in ensuring everyone perform their duties and always reminded the team of dealines. He also assisted in designing the user inter-phase of the game as well coded the board.py of the game. His skills came in handy.
 + Adio Roheem
 > This team member write different tests for the chess game inorder to ensure that everything works well. He also ensure that our algorithm stays efficient in times of time, space complexity. 
 + Santigie Sankoh
