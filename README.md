@@ -1480,7 +1480,9 @@ if __name__ == '__main__':
 # Solution
 > Essay (150 words)
 
+Probably, it was a great opportunity, an experience for me and my Team to work on this Idea which to Build Chess Game . The Reason Behind this app is that We wanna help ALU students to relax and Chill with this game during the Holidays. The Problem which gave us the motivation to build this game is that we realize that a lot of people at ALU they really like playing Chess Game to relax and Also as the school will end very soon, as Computer science We wanna create this App so that we can help them to relax and Chill with our new App without pay fees for it.
 
+Here I and my Team mates, we  have come a long way up with this solution  to build this app and we believe that with this new App, they Can enjoy and Chill during this Holidays. We wanna ensure that everyone will Enjoy this amazing Holidays.
 # Addition
 
 
