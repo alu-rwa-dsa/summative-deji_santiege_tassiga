@@ -1418,11 +1418,11 @@ class Queen(Piece):
 > Test Cases 
   
 # Solution
-> 
+> Essay (150 words)
 
 
 # Addition
-> Essay (150 words)
+
 
 > Video : https://drive.google.com/file/d/1id3uQo1ia3fFFYhf4clRYIsfcfUXsXKn/view?usp=sharing
 
